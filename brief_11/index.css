@@ -1,0 +1,35 @@
+/* body{
+    
+    background-size: cover;
+}
+h1{
+    text-align: center;
+}
+#form1{
+    text-align: center;
+}
+#form2{
+    text-align: center;
+}
+
+#new{
+    margin-top: 10px;
+    padding: 1px 9px 1px 41px;
+    margin-bottom: 10px;
+}
+#old{
+    margin-top: 50px;
+    padding: 1px 9px 1px 41px;
+} */
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h5 {
+    position: absolute;
+    margin-left: 94%;
+    margin-bottom: 28px;
+}
