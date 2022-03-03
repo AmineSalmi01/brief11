@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="ns"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-02-03 10:30:12 "/>
+        <attribute name="created" value="bnM7REVTS1RPUC1GS1JIVDRQOzIwMjItMDEtMjk7IjA2OjM5OjQzICI7MjUyMQ=="/>
+        <attribute name="edited" value="bnM7REVTS1RPUC1GS1JIVDRQOzIwMjItMDItMDE7IjEwOjAwOjUwICI7MTA7MjY0OQ=="/>
+        <attribute name="edited" value="c29saWNvZGU7REVTS1RPUC1HTEdTSTRBOzIwMjItMDItMDM7IjEwOjMwOjEyICI7MjszMjA2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="Ancien" type="Real" array="False" size=""/>
+            <declare name="Nouveau" type="Real" array="False" size=""/>
+            <input variable="Ancien"/>
+            <input variable="Nouveau"/>
+            <declare name="consumation" type="Real" array="False" size=""/>
+            <assign variable="consumation" expression="Nouveau - Ancien"/>
+            <output expression="consumation" newline="True"/>
+            <if expression="consumation &lt;=150">
+                <then>
+                    <if expression="consumation &lt;= 100">
+                        <then>
+                            <declare name="montantHT" type="Real" array="False" size=""/>
+                            <assign variable="montantHT" expression="consumation * 0.794"/>
+                            <output expression="montantHT" newline="True"/>
+                            <declare name="MontantTaxes" type="Real" array="False" size=""/>
+                            <assign variable="MontantTaxes" expression="montantHT * 0.14"/>
+                            <output expression="MontantTaxes" newline="True"/>
+                        </then>
+                        <else>
+                            <declare name="montantHT1" type="Real" array="False" size=""/>
+                            <assign variable="montantHT1" expression="100*0.794"/>
+                            <declare name="montantHT2" type="Real" array="False" size=""/>
+                            <assign variable="montantHT2" expression="(consumation - 100 )* 0.883"/>
+                            <output expression="montantHT1" newline="True"/>
+                            <output expression="montantHT2" newline="True"/>
+                            <declare name="MontantTaxes1" type="Real" array="False" size=""/>
+                            <declare name="MontantTaxes2" type="Real" array="False" size=""/>
+                            <assign variable="MontantTaxes1" expression="montantHT1* 0.14"/>
+                            <assign variable="MontantTaxes2" expression="montantHT2 * 0.14"/>
+                            <output expression="MontantTaxes1" newline="True"/>
+                            <output expression="MontantTaxes2" newline="True"/>
+                            <declare name="SoustotalHT" type="Real" array="False" size=""/>
+                            <assign variable="SoustotalHT" expression="montantHT1 + montantHT2"/>
+                            <declare name="SoustotalTX" type="Real" array="False" size=""/>
+                            <assign variable="SoustotalTX" expression="MontantTaxes1 + MontantTaxes2"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <declare name="montantHT" type="Real" array="False" size=""/>
+                    <if expression="consumation&gt;= 151 &amp;&amp; consumation&lt;= 210">
+                        <then>
+                            <assign variable="montantHT" expression="consumation* 0.9451"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="consumation &gt;= 211 &amp;&amp; consumation &lt;=310">
+                        <then>
+                            <assign variable="montantHT" expression="consumation* 1.0489"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="consumation&gt;=311 &amp;&amp; consumation &lt;=510">
+                        <then>
+                            <assign variable="montantHT" expression="consumation * 1.2915"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="consumation&gt;=511">
+                        <then>
+                            <assign variable="montantHT" expression="consumation * 1.4975"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <output expression="montantHT" newline="True"/>
+                    <declare name="MontantTaxes" type="Real" array="False" size=""/>
+                    <assign variable="MontantTaxes" expression="montantHT * 0.14"/>
+                    <output expression="MontantTaxes" newline="True"/>
+                </else>
+            </if>
+            <declare name="calibre" type="Real" array="False" size=""/>
+            <input variable="calibre"/>
+            <output expression="calibre" newline="True"/>
+            <declare name="Montantcalibre" type="Real" array="False" size=""/>
+            <if expression="calibre&gt;=5 &amp;&amp; calibre &lt;= 10">
+                <then>
+                    <assign variable="Montantcalibre" expression="22.65"/>
+                    <output expression="Montantcalibre" newline="True"/>
+                </then>
+                <else>
+                    <if expression="calibre &gt;=15 &amp;&amp; calibre &lt;=20">
+                        <then>
+                            <assign variable="Montantcalibre" expression="37.05"/>
+                            <output expression="Montantcalibre" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="calibre &gt;=30">
+                                <then>
+                                    <assign variable="Montantcalibre" expression="46.20"/>
+                                    <output expression="Montantcalibre" newline="True"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <declare name="MontantcalibreTaxes" type="Real" array="False" size=""/>
+            <assign variable="MontantcalibreTaxes" expression="Montantcalibre * 0.14"/>
+            <output expression="MontantcalibreTaxes" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
